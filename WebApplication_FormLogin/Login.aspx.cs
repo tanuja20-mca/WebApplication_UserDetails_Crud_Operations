@@ -52,9 +52,7 @@ namespace WebApplication_FormLogin
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "delete from Login where FirstName= '" + txtFirstName.Text + " '";
+            SqlCommand cmd = new SqlCommand("delete from Login where FirstName= '" + txtFirstName.Text + " '",con);
             cmd.ExecuteNonQuery();
 
             txtFirstName.Text = "";
